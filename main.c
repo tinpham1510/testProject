@@ -14,6 +14,8 @@ int main()
     printf("%s\n", str2);
     printf("%s\n", str3);
     printf("%s\n", str4);
-    
+
+    system("cls");
+
     return 0;
 }
