@@ -2,6 +2,10 @@
 #include <iostream>
 using namespace std;
 
+//write a commemt in line
+//hello world
+// github in line but not in block comment ha
+
 int main()
 {
     int a, b, c;
