@@ -1,0 +1,123 @@
+1/ Javascript chạy như thế nào?
+
+- JS chạy trên các môi trường trình duyệt về phía người dùng, môi trường BE như nodeJS
+2/ Kiểu dữ liệu trong JS?
+
+Kiểu dữ liệu trong JS được chia thành 2 loại:
+- Kiểu dữ liệu nguyên thủy (primitive data):
+    Number
+    String
+    Boolean
+    Undefined
+    Null
+    Symbol
+    BigInts
+- kiểu dữ liệu không nguyên thủy (complex data):
+    Object
+    Array
+    RegExp
+
+3/ Hoisting trong JS?
+
+Hoisting là hành vi mặc định của JavaScript để di chuyển các khai báo lên trên cùng.
+
+Trong JS một biến có thể được khai báo sau khi nó đã được sử dụng nói cách khác, một biến có thể được sử dụng ngay cả trước khi nó được khai báo
+
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x;                     // Display x in the element
+
+var x; // Declare x
+
+Từ khóa let và const nếu dùng trong trường hợp trên cũng sẽ được đưa lên đầu scope (hoisting). Nhưng nó sẽ không có giá trị khởi tạo undefined như var. Chính vì thế, nếu bạn sử dụng biến trước khi khai báo sẽ bị lỗi.
+
+Class nếu dùng trong trường hợp trên cũng sẽ bị lỗi tương tự như let và const
+
+Ta có 2 loại Functions đó là: function declarations và function expressions.
+
+Fuction declarations hoisting được nhưng function expressions thì sẽ báo lỗi //Uncaught TypeError: car is not a function
+
+Đối với từ khóa const và let như đã nói ở trên. Khi sử dụng function expressions bằng 2 từ khóa này, phần khai báo sẽ hoisted và được đưa lên đầu scope. Nhưng chúng không có giá trị khởi tạo giống var là undefined nên sẽ xảy ra lỗi Uncaught ReferenceError: Cannot access 'car' before initialization.
+
+
+4/ Phân biệt giữa Var, let, const trong JS?
+
+Var có phạm vi ở trong 1 function hay còn được gọi là một biến toàn cục.
+
+let, const chỉ có phạm vi ở trong 2 dấu ngoặc hay gọi là block-scoped
+
+Người ta thường dùng let hơn var vì let được đặt trong if else nên dễ quản lý hơn
+
+const thường ko thay đổi 
+let thường thay đổi
+
+5/ so sánh dấu == và  ===?
+
+Khi chúng ta sử dụng toán tử ==, nó chỉ kiểm tra xem nó có cùng giá trị hay không. Cả hai đều có giá trị là 3, vì vậy nó trả về true.
+
+Tuy nhiên, khi chúng ta sử dụng toán tử ===, thì sẽ phải so sánh cả giá trị và cả kiểu của nó.
+
+6/ Khái niệm Callback()?
+
+Callback function có thể được hiểu nôm na như sau: callback tức là ta truyền một đoạn code (Hàm A) này vào một đoạn code khác (Hàm B).
+
+Callback dùng khi xử lý các sự kiện bất đồng bộ, khi muốn tạo event đưa 1 callback function thì khi người dùng hover chuột hay click thì sẽ gọi hàm đó
+
+7/ Closure trong JS?
+
+là một hàm bên trong mà có thể truy cập được biến của hàm bên ngoài (chứa biến đó)
+
+Closure có 3 scope chain, đó là: Có thể truy cập đến biến của chính nó (biến được định nghĩa trong dấu ngoặc nhọn của nó); Có thể truy cập biến của hàm bên ngoài; Có thể truy cập biến toàn cục (global).
+
+vd:
+function a() {
+    var name = "I'm a Copy";
+    function b() { // Closure
+        console.log(name);
+    }
+}
+
+8/ Currying trong JS?
+
+Currying là một kỹ thuật đánh giá function với multiple arguments, thành một chuỗi hàm với single argument duy nhất. Nói cách khác, khi một function, thay vì lấy tất cả arguments cùng một lúc, lấy hàm thứ nhất và trả về hàm mới lấy hàm thứ hai và trả về hàm mới lấy hàm thứ ba, và tiếp tục cho đến khi tất cả các đối số đã được hoàn thành.
+vd: const add = a => b => a + b
+
+add(1)(2)
+
+9/ ES6 khác gì với ES5?
+ES6 có let, const, var và có thể tạo class và function
+
+10/ Vì sao lại sử dụng React?
+
+- React sử dụng DOM ảo, giúp các ứng dụng web hoạt động nhanh hơn. Virtual DOM so sánh trạng thái trước đó của nó và chỉ cập nhật các thành phần có trạng thái thay đổi trong DOM thực thay vì cập nhật tất cả các thành phần, như các ứng dụng web thông thường.
+
+- Các components là nền tảng của bất kỳ ứng dụng React nào và một ứng dụng đơn lẻ thường bao gồm nhiều components. Các components này có logic và các điều khiển riêng và chúng có thể được tái sử dụng thông qua ứng dụng, do đó làm giảm đáng kể thời gian phát triển một ứng dụng.
+
+11/ DOM là gì?
+
+- DOM là viết tắt của Document Object Model. DOM đại diện cho một tài liệu HTML có cấu trúc cây logic. Mỗi nhánh của cây kết thúc bằng một nút và mỗi nút chứa các đối tượng.
+
+- DOM cung cấp giao diện trung lập về ngôn ngữ cho phép truy cập và cập nhật nội dung của bất kỳ phần tử nào của trang web. 
+
+- virtual DOM: React sử dụng Virtual DOM tồn tại giống như một bản sao nhỏ của DOM thực (một đại diện ảo của DOM). Vì vậy, đối với mọi đối tượng tồn tại trong DOM gốc, có một đối tượng cho đối tượng đó trong React Virtual DOM. Nó hoàn toàn giống nhau, nhưng nó không có quyền thay đổi trực tiếp bố cục của tài liệu. Thao tác DOM chậm, nhưng thao tác Virtual DOM nhanh chóng vì không có gì được vẽ trên màn hình. Vì vậy, mỗi khi có sự thay đổi trong trạng thái ứng dụng của chúng tôi, DOM ảo sẽ được cập nhật trước tiên thay vì DOM thực.
+
+- Cách Virtual DOM thực sự làm cho mọi thứ nhanh hơn: Khi bất kỳ thứ gì mới được thêm vào ứng dụng, một DOM ảo sẽ được tạo và nó được biểu diễn dưới dạng cây. Mỗi phần tử trong ứng dụng là một nút trong cây này. Vì vậy, bất cứ khi nào có sự thay đổi về trạng thái của bất kỳ phần tử nào, một cây DOM ảo mới sẽ được tạo. Cây Virtual DOM mới này sau đó được so sánh với cây Virtual DOM trước đó và ghi chú những thay đổi. Sau đó, nó sẽ tìm ra những cách tốt nhất có thể để thực hiện những thay đổi này đối với DOM thực. Bây giờ, chỉ các phần tử được cập nhật sẽ được hiển thị lại trên trang.
+
+12/ Props và state khác nhau như thế nào?
+
+- Props cung cấp cách để truyền dữ liệu từ component này sang component khác. Các props được truyền cho component theo cách giống như các arguments được truyền trong một hàm.
+
+- State là một đối tượng (object) React tích hợp được sử dụng để chứa dữ liệu hoặc thông tin về component. State trong một component có thể thay đổi theo thời gian và bất cứ khi nào nó thay đổi, component sẽ render lại.
+
+- khi muốn truyền dữ liệu từ component này sang component khác thì dùng props, còn state dùng khi muốn lưu dữ liệu của 1 cái gì đó trong component.
+
+13/ Stateless component và stateful components
+
+- Stateless component = Functional Components: Loại components này không có state của riêng chúng và chỉ chứa các phương thức render, do đó còn được gọi là stateless components. Chúng có thể lấy dữ liệu từ các components khác làm props (properties – thuộc tính).
+
+- stateful component = Class Components: Loại components này có thể giữ và quản lý state của riêng chúng và có một phương thức render riêng để trả về JSX trên màn hình. Chúng cũng được gọi là stateful components vì chúng có thể có một state.
+
+14/ Tại sao người ta thường dùng Fuctional component?
+
+- Nó gọn hơn và dễ test hơn, chỉ cần input và output là props và render nên dễ dàng đễ dùng hơn.
